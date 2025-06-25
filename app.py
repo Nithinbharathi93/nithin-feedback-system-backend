@@ -187,4 +187,6 @@ def employee_dashboard():
     return jsonify([dict(r) for r in rows])
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3000)
+    import os
+    port = int(os.getenv("PORT", 3000))
+    app.run(host="0.0.0.0", port=port, debug=True)
