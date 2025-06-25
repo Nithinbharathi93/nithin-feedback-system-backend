@@ -1,7 +1,6 @@
-FROM node:lts-alpine
-WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+FROM python:3.10-slim
+WORKDIR /app
 COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 3000
-CMD [ "npm", "start" ]
+CMD ["python", "app.py"]
